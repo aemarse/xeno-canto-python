@@ -1,6 +1,7 @@
 from urllib2 import Request, build_opener, HTTPError, URLError
 import simplejson
 
+# Global variables
 BASE_URL = "http://xeno-canto.org/api/recordings.php?query="
 NUM_R = "numRecordings"
 NUM_SP = "numSpecies"
@@ -8,7 +9,7 @@ PG = "page"
 NUM_PG = "numPages"
 RECS = "recordings"
 
-# Contains all params and methods for querying the db
+# Class that contains all params and methods for querying the db
 class XenoCantoObject:
 	
 	# Initialize some empty parameters
@@ -57,6 +58,7 @@ class XenoCantoObject:
 		self.query_url = BASE_URL + name_url + tag_url
 		print self.query_url
 
+	# Performs HTTP GET request, returns JSON object
 	def get(self):
 		try:
 			request = Request(self.query_url)
@@ -72,6 +74,7 @@ class XenoCantoObject:
 			json_obj = simplejson.load(f)
 			return json_obj
 
+	# Decodes JSON object into its components and sets them as class variables
 	def decode(self, json):
 		self.num_recs = json[NUM_R]
 		self.num_sp = json[NUM_SP]
