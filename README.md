@@ -20,3 +20,12 @@ For additional reference, you may want check out the documentation for the Xeno-
 http://xeno-canto.org/feature-view.php?blognr=153
 
 http://xeno-canto.org/tips.php
+
+---------------------------------------------------------------
+
+FUTURE WORK:
+
+- Method for downloading all audio files in a response
+- Method for changing pages
+- Method for getting an audio file by id
+- ...?

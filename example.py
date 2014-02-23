@@ -1,4 +1,5 @@
 from xeno_canto.__init__ import *
+import os
 
 # Parameters of the query
 # (see __init__.py.XenoCantoObject.tags for options)
@@ -29,8 +30,12 @@ print "numSpecies : " + xc_obj.num_sp
 print "page       : %d" % xc_obj.page
 print "numPages   : %d" % xc_obj.num_pages
 
-# Can access individual recordings this way
+# Access individual recordings this way
 recs = xc_obj.recs
 curr = recs[0]
 curr_id = curr['id']
 print curr_id
+
+# Download all audio files in the response like this
+rec_dir = os.path.dirname(os.path.realpath(__file__)) + "/audio/"
+xc_obj.download_audio(rec_dir)

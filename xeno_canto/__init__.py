@@ -1,4 +1,4 @@
-from urllib2 import Request, build_opener, HTTPError, URLError
+from urllib2 import Request, build_opener, HTTPError, URLError, urlopen
 import simplejson
 
 # Global variables
@@ -81,3 +81,26 @@ class XenoCantoObject:
 		self.page = json[PG]
 		self.num_pages = json[NUM_PG]
 		self.recs = json[RECS]
+
+	# Downloads all audio files in the 'recs' class variable
+	def download_audio(self, audio_dir):
+		for idx, rec in enumerate(self.recs):
+
+			rec_url = rec['file']
+			
+			conn = urlopen(rec_url)
+			file_name = audio_dir + rec['en'] + '_' + rec['id'] + '.mp3'
+			f = open(file_name, 'wb')
+			size = int(conn.info().getheaders("Content-Length")[0])
+
+			block_size = 8192
+			while True:
+				buf = usock.read(block_size)
+				
+				if not buf:
+					break
+
+				f.write(buf)
+				
+			f.close()
+			print "Wrote %d/%s" % (idx + 1, self.num_recs)
