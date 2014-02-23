@@ -16,5 +16,7 @@ First, you'll want to 'pip install simplejson', as this is the one and only depe
 For an example of how to use this library, see 'example.py'.
 
 For additional reference, you may want check out the documentation for the Xeno-canto API 2.0:
+
 http://xeno-canto.org/feature-view.php?blognr=153
+
 http://xeno-canto.org/tips.php
