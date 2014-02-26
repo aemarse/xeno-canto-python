@@ -95,7 +95,7 @@ class XenoCantoObject:
 
 			block_size = 8192
 			while True:
-				buf = usock.read(block_size)
+				buf = conn.read(block_size)
 				
 				if not buf:
 					break
